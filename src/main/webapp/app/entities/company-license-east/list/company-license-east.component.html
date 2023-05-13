@@ -1,0 +1,108 @@
+<div>
+  <h2 id="page-heading" data-cy="CompanyLicenseEastHeading">
+    <span>Company License Easts</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-company-license-east"
+        [routerLink]="['/company-license-east/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Company License East </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="companyLicenseEasts?.length === 0">
+    <span>No Company License Easts found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="companyLicenseEasts && companyLicenseEasts.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="idCompany.id">
+            <div class="d-flex">
+              <span>Id Company</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="idLicense.id">
+            <div class="d-flex">
+              <span>Id License</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let companyLicenseEast of companyLicenseEasts; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/company-license-east', companyLicenseEast.id, 'view']">{{ companyLicenseEast.id }}</a>
+          </td>
+          <td>
+            <div *ngIf="companyLicenseEast.idCompany">
+              <a [routerLink]="['/company-east', companyLicenseEast.idCompany.id, 'view']">{{ companyLicenseEast.idCompany.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="companyLicenseEast.idLicense">
+              <a [routerLink]="['/license-east', companyLicenseEast.idLicense.id, 'view']">{{ companyLicenseEast.idLicense.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/company-license-east', companyLicenseEast.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/company-license-east', companyLicenseEast.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(companyLicenseEast)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

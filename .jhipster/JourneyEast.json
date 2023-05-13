@@ -1,0 +1,83 @@
+{
+  "applications": "*",
+  "changelogDate": "20230513112019",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "journey_east",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "distance",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "journeyDuration",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "actualDepartureTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "plannedDepartureTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "actualArrivalTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "plannedArrivalTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "ticketPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "numberOfStops",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "timeOfStops",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "minutesLate",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "journeyStatusId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "trainId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "companyId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "departureRailwayStationId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "arivalRailwayStationId",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "JourneyEast",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

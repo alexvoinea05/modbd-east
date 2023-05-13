@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="journeyEast">
+      <h2 data-cy="journeyEastDetailsHeading"><span>Journey East</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>Id</span></dt>
+        <dd>
+          <span>{{ journeyEast.id }}</span>
+        </dd>
+        <dt><span>Distance</span></dt>
+        <dd>
+          <span>{{ journeyEast.distance }}</span>
+        </dd>
+        <dt><span>Journey Duration</span></dt>
+        <dd>
+          <span>{{ journeyEast.journeyDuration }}</span>
+        </dd>
+        <dt><span>Actual Departure Time</span></dt>
+        <dd>
+          <span>{{ journeyEast.actualDepartureTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span>Planned Departure Time</span></dt>
+        <dd>
+          <span>{{ journeyEast.plannedDepartureTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span>Actual Arrival Time</span></dt>
+        <dd>
+          <span>{{ journeyEast.actualArrivalTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span>Planned Arrival Time</span></dt>
+        <dd>
+          <span>{{ journeyEast.plannedArrivalTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span>Ticket Price</span></dt>
+        <dd>
+          <span>{{ journeyEast.ticketPrice }}</span>
+        </dd>
+        <dt><span>Number Of Stops</span></dt>
+        <dd>
+          <span>{{ journeyEast.numberOfStops }}</span>
+        </dd>
+        <dt><span>Time Of Stops</span></dt>
+        <dd>
+          <span>{{ journeyEast.timeOfStops }}</span>
+        </dd>
+        <dt><span>Minutes Late</span></dt>
+        <dd>
+          <span>{{ journeyEast.minutesLate }}</span>
+        </dd>
+        <dt><span>Journey Status Id</span></dt>
+        <dd>
+          <span>{{ journeyEast.journeyStatusId }}</span>
+        </dd>
+        <dt><span>Train Id</span></dt>
+        <dd>
+          <span>{{ journeyEast.trainId }}</span>
+        </dd>
+        <dt><span>Company Id</span></dt>
+        <dd>
+          <span>{{ journeyEast.companyId }}</span>
+        </dd>
+        <dt><span>Departure Railway Station Id</span></dt>
+        <dd>
+          <span>{{ journeyEast.departureRailwayStationId }}</span>
+        </dd>
+        <dt><span>Arival Railway Station Id</span></dt>
+        <dd>
+          <span>{{ journeyEast.arivalRailwayStationId }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/journey-east', journeyEast.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

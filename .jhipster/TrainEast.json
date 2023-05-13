@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20230513112025",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "train_east",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numberOfSeats",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "fuelTypeId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "trainTypeId",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TrainEast",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

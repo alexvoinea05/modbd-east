@@ -1,0 +1,203 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-journey-east-heading" data-cy="JourneyEastCreateUpdateHeading">Create or edit a Journey East</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_distance">Distance</label>
+          <input type="number" class="form-control" name="distance" id="field_distance" data-cy="distance" formControlName="distance" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_journeyDuration">Journey Duration</label>
+          <input
+            type="number"
+            class="form-control"
+            name="journeyDuration"
+            id="field_journeyDuration"
+            data-cy="journeyDuration"
+            formControlName="journeyDuration"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_actualDepartureTime">Actual Departure Time</label>
+          <div class="d-flex">
+            <input
+              id="field_actualDepartureTime"
+              data-cy="actualDepartureTime"
+              type="datetime-local"
+              class="form-control"
+              name="actualDepartureTime"
+              formControlName="actualDepartureTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_plannedDepartureTime">Planned Departure Time</label>
+          <div class="d-flex">
+            <input
+              id="field_plannedDepartureTime"
+              data-cy="plannedDepartureTime"
+              type="datetime-local"
+              class="form-control"
+              name="plannedDepartureTime"
+              formControlName="plannedDepartureTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_actualArrivalTime">Actual Arrival Time</label>
+          <div class="d-flex">
+            <input
+              id="field_actualArrivalTime"
+              data-cy="actualArrivalTime"
+              type="datetime-local"
+              class="form-control"
+              name="actualArrivalTime"
+              formControlName="actualArrivalTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_plannedArrivalTime">Planned Arrival Time</label>
+          <div class="d-flex">
+            <input
+              id="field_plannedArrivalTime"
+              data-cy="plannedArrivalTime"
+              type="datetime-local"
+              class="form-control"
+              name="plannedArrivalTime"
+              formControlName="plannedArrivalTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_ticketPrice">Ticket Price</label>
+          <input
+            type="number"
+            class="form-control"
+            name="ticketPrice"
+            id="field_ticketPrice"
+            data-cy="ticketPrice"
+            formControlName="ticketPrice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_numberOfStops">Number Of Stops</label>
+          <input
+            type="number"
+            class="form-control"
+            name="numberOfStops"
+            id="field_numberOfStops"
+            data-cy="numberOfStops"
+            formControlName="numberOfStops"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_timeOfStops">Time Of Stops</label>
+          <input
+            type="number"
+            class="form-control"
+            name="timeOfStops"
+            id="field_timeOfStops"
+            data-cy="timeOfStops"
+            formControlName="timeOfStops"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_minutesLate">Minutes Late</label>
+          <input
+            type="number"
+            class="form-control"
+            name="minutesLate"
+            id="field_minutesLate"
+            data-cy="minutesLate"
+            formControlName="minutesLate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_journeyStatusId">Journey Status Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="journeyStatusId"
+            id="field_journeyStatusId"
+            data-cy="journeyStatusId"
+            formControlName="journeyStatusId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_trainId">Train Id</label>
+          <input type="number" class="form-control" name="trainId" id="field_trainId" data-cy="trainId" formControlName="trainId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_companyId">Company Id</label>
+          <input type="number" class="form-control" name="companyId" id="field_companyId" data-cy="companyId" formControlName="companyId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_departureRailwayStationId">Departure Railway Station Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="departureRailwayStationId"
+            id="field_departureRailwayStationId"
+            data-cy="departureRailwayStationId"
+            formControlName="departureRailwayStationId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_arivalRailwayStationId">Arival Railway Station Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="arivalRailwayStationId"
+            id="field_arivalRailwayStationId"
+            data-cy="arivalRailwayStationId"
+            formControlName="arivalRailwayStationId"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

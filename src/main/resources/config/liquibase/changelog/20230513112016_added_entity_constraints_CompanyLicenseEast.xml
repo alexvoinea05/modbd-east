@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity CompanyLicenseEast.
+    -->
+    <changeSet id="20230513112016-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="id_company_id"
+                                 baseTableName="company_license_east"
+                                 constraintName="fk_company_license_east__id_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company_east"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_license_id"
+                                 baseTableName="company_license_east"
+                                 constraintName="fk_company_license_east__id_license_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="license_east"/>
+    </changeSet>
+</databaseChangeLog>

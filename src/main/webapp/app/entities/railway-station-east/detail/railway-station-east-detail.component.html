@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="railwayStationEast">
+      <h2 data-cy="railwayStationEastDetailsHeading"><span>Railway Station East</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>Id</span></dt>
+        <dd>
+          <span>{{ railwayStationEast.id }}</span>
+        </dd>
+        <dt><span>Railway Station Name</span></dt>
+        <dd>
+          <span>{{ railwayStationEast.railwayStationName }}</span>
+        </dd>
+        <dt><span>Railway Type Id</span></dt>
+        <dd>
+          <span>{{ railwayStationEast.railwayTypeId }}</span>
+        </dd>
+        <dt><span>Address Id</span></dt>
+        <dd>
+          <span>{{ railwayStationEast.addressId }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/railway-station-east', railwayStationEast.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

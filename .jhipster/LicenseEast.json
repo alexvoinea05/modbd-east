@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20230513112021",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "license_east",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "licenseNumber",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "licenseDescription",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LicenseEast",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "companyLicenseEast",
+      "otherEntityRelationshipName": "idLicense",
+      "relationshipName": "companyLicenseEast",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

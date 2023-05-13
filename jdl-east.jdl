@@ -1,0 +1,136 @@
+
+
+entity AddressEast {
+@Id id Long,
+streetNumber String,
+street String,
+zipcode String,
+cityId Long
+}
+
+entity AppUserEast {
+@Id id Long,
+email String,
+balance Double,
+lastName String,
+firstName String,
+userTypeId Long
+}
+
+entity CityEast {
+@Id id Long,
+name String,
+districtId Long
+}
+
+entity CompanyEast {
+@Id id Long,
+name String,
+identificationNumber String
+}
+
+entity CompanyLicenseEast {
+@Id id Long
+}
+
+entity DistrictEast {
+@Id id Long,
+name String,
+region String
+}
+
+entity FuelTypeEast {
+@Id id Long,
+code String,
+description String
+}
+
+entity JourneyEast {
+@Id id Long,
+distance Double,
+journeyDuration Double,
+actualDepartureTime ZonedDateTime,
+	plannedDepartureTime ZonedDateTime,
+	actualArrivalTime ZonedDateTime,
+	plannedArrivalTime ZonedDateTime,
+	ticketPrice Double,
+	numberOfStops Integer,
+	timeOfStops Double,
+	minutesLate Double,
+	journeyStatusId Long,
+	trainId Long,
+	companyId Long,
+	departureRailwayStationId Long,
+	arivalRailwayStationId Long
+}
+
+entity JourneyStatusEast{
+	@Id id Long,
+    code String,
+    description String
+}
+
+entity LicenseEast {
+	@Id id Long,
+    licenseNumber Long,
+    licenseDescription String
+}
+
+entity RailwayStationEast{
+	@Id id Long,
+    railwayStationName String,
+	railwayTypeId Long
+	addressId Long,
+}
+
+entity RailwayTypeEast{
+	@Id id Long,
+    code String,
+    description String
+}
+
+entity TicketEast{
+	@Id id Long,
+    finalPrice Double,
+    quantity Integer,
+	time ZonedDateTime,
+	appUserId Long,
+	journeyId Long
+}
+
+entity TrainEast {
+@Id id Long,
+    code String,
+    numberOfSeats Long,
+	fuelTypeId Long,
+	trainTypeId Long
+}
+
+entity TrainTypeEast {
+@Id id Long,
+    code String,
+    description String
+}
+
+entity UserTypeEast {
+@Id id Long,
+    code String,
+    discount Double
+}
+
+relationship OneToMany {
+    CompanyEast to CompanyLicenseEast{idCompany},
+    LicenseEast to CompanyLicenseEast{idLicense}
+}
+
+// Set pagination options
+paginate all with infinite-scroll
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

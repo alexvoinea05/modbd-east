@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ticketEast">
+      <h2 data-cy="ticketEastDetailsHeading"><span>Ticket East</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>Id</span></dt>
+        <dd>
+          <span>{{ ticketEast.id }}</span>
+        </dd>
+        <dt><span>Final Price</span></dt>
+        <dd>
+          <span>{{ ticketEast.finalPrice }}</span>
+        </dd>
+        <dt><span>Quantity</span></dt>
+        <dd>
+          <span>{{ ticketEast.quantity }}</span>
+        </dd>
+        <dt><span>Time</span></dt>
+        <dd>
+          <span>{{ ticketEast.time | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span>App User Id</span></dt>
+        <dd>
+          <span>{{ ticketEast.appUserId }}</span>
+        </dd>
+        <dt><span>Journey Id</span></dt>
+        <dd>
+          <span>{{ ticketEast.journeyId }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ticket-east', ticketEast.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
